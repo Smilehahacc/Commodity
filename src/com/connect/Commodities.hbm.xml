@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <!-- 包名必须写对 -->
+<hibernate-mapping package="com.connect">
+
+ <!-- class为对应的映射实体类名，table为对应数据库中的表名 -->
+ <class name="Commodities" table="commodities">
+  	  <id name="id" column="id"></id>
+      <property name="name" />
+      <property name="price" />
+      <property name="kind" />
+      <property name="inventory" />
+    </class>
+
+</hibernate-mapping>

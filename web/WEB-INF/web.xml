@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+  <servlet>
+    <javaee:description>This is the description of my J2EE component</javaee:description>
+    <javaee:display-name>This is the display name of my J2EE component</javaee:display-name>
+    <servlet-name>DBBean</servlet-name>
+    <servlet-class>Bean.DBBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DBBean</servlet-name>
+    <url-pattern>/servlet/DBBean</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping>
+
+  <!-- 用户名列表获取 -->
+  <servlet-mapping>
+      <servlet-name>GetUserServlet</servlet-name>
+      <url-pattern>/Servlet/GetUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>GetUserServlet</servlet-name>
+      <servlet-class>com.data.GetUserServlet</servlet-class>
+  </servlet>
+
+  <!-- 登录验证 -->
+  <servlet-mapping>
+      <servlet-name>LoginValadite</servlet-name>
+      <url-pattern>/Servlet/LoginValadite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>LoginValadite</servlet-name>
+      <servlet-class>com.operation.LoginValadite</servlet-class>
+  </servlet>
+
+  <!-- 注册验证 -->
+  <servlet-mapping>
+      <servlet-name>RegisterValadite</servlet-name>
+      <url-pattern>/Servlet/RegisterValadite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>RegisterValadite</servlet-name>
+      <servlet-class>com.operation.RegisterValadite</servlet-class>
+  </servlet>
+
+  <!-- 个人信息修改 -->
+  <servlet-mapping>
+      <servlet-name>InforModify</servlet-name>
+      <url-pattern>/Servlet/InforModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>InforModify</servlet-name>
+      <servlet-class>com.operation.InforModify</servlet-class>
+  </servlet>
+
+  <!-- 密码修改验证 -->
+  <servlet-mapping>
+      <servlet-name>PasswordModify</servlet-name>
+      <url-pattern>/Servlet/PasswordModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>PasswordModify</servlet-name>
+      <servlet-class>com.operation.PasswordModify</servlet-class>
+  </servlet>
+
+  <!-- 权限申请验证 -->
+  <servlet-mapping>
+      <servlet-name>PowerModify</servlet-name>
+      <url-pattern>/Servlet/PowerModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>PowerModify</servlet-name>
+      <servlet-class>com.operation.PowerModify</servlet-class>
+  </servlet>
+
+  <!-- 订单提交验证 -->
+  <servlet-mapping>
+      <servlet-name>OrderConfirmation</servlet-name>
+      <url-pattern>/Servlet/OrderConfirmation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>OrderConfirmation</servlet-name>
+      <servlet-class>com.operation.OrderConfirmation</servlet-class>
+  </servlet>
+
+  <!-- 额外订单提交 -->
+  <servlet-mapping>
+      <servlet-name>OrderAdditional</servlet-name>
+      <url-pattern>/Servlet/OrderAdditional</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>OrderAdditional</servlet-name>
+      <servlet-class>com.operation.OrderAdditional</servlet-class>
+  </servlet>
+
+  <!-- 出货订单提交 -->
+  <servlet-mapping>
+      <servlet-name>SelloutAdditional</servlet-name>
+      <url-pattern>/Servlet/SelloutAdditional</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>SelloutAdditional</servlet-name>
+      <servlet-class>com.operation.SelloutAdditional</servlet-class>
+  </servlet>
+
+  <!-- 普通查询 -->
+  <servlet-mapping>
+      <servlet-name>FindCommodity</servlet-name>
+      <url-pattern>/Servlet/FindCommodity</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>FindCommodity</servlet-name>
+      <servlet-class>com.operation.FindCommodity</servlet-class>
+  </servlet>
+
+  <!-- 高级查询 -->
+  <servlet-mapping>
+      <servlet-name>FindCommodityS</servlet-name>
+      <url-pattern>/Servlet/FindCommodityS</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>FindCommodityS</servlet-name>
+      <servlet-class>com.operation.FindCommodityS</servlet-class>
+  </servlet>
+
+  <!-- 商品信息修改 -->
+  <servlet-mapping>
+      <servlet-name>ModifyCommodity</servlet-name>
+      <url-pattern>/Servlet/ModifyCommodity</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ModifyCommodity</servlet-name>
+      <servlet-class>com.operation.ModifyCommodity</servlet-class>
+  </servlet>
+
+  <!-- 导入商品信息单 -->
+  <servlet-mapping>
+      <servlet-name>ImportExcelServlet</servlet-name>
+      <url-pattern>/Servlet/ImportExcelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ImportExcelServlet</servlet-name>
+      <servlet-class>com.data.ImportExcelServlet</servlet-class>
+  </servlet>
+
+  <!-- 导出商品信息单 -->
+  <servlet-mapping>
+      <servlet-name>ExportExcelServlet</servlet-name>
+      <url-pattern>/Servlet/ExportExcelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ExportExcelServlet</servlet-name>
+      <servlet-class>com.data.ExportExcelServlet</servlet-class>
+  </servlet>
+
+  <!-- 上传头像 -->
+  <servlet-mapping>
+      <servlet-name>UploadPortraitServlet</servlet-name>
+      <url-pattern>/Servlet/UploadPortraitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>UploadPortraitServlet</servlet-name>
+      <servlet-class>com.data.UploadPortraitServlet</servlet-class>
+  </servlet>
+
+</web-app>

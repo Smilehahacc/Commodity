@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+#container2 {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 400px;
+}
+
+
+
+		</style>
+	</head>
+	<body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/code/highcharts.js"></script>
+<script src="js/code/highcharts-3d.js"></script>
+
+<div id="container2"></div>
+
+		<script type="text/javascript">
+
+      // Set up the chart
+      var chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'container2',
+              type: 'column',
+              options3d: {
+                  enabled: true,
+                  alpha: 15,
+                  beta: 15,
+                  depth: 50,
+                  viewDistance: 25
+              }
+          },
+          title: {
+              text: '商品销量统计'
+          },
+          plotOptions: {
+              column: {
+                  depth: 25
+              }
+          },
+          series: [{
+              // data: [345, 234, 324, 67, 44]
+              name: '销量(件)',
+              data: [
+                  ['日用品', 345],
+                  ['化妆品', 234],
+                  ['食品', 324],
+                  ['手机', 67],
+                  ['家电', 44],
+              ]
+          }]
+      });
+
+
+      // // Activate the sliders
+      // $('#sliders input').on('input change', function () {
+      //     chart.options.chart.options3d[this.id] = parseFloat(this.value);
+      //     showValues();
+      //     chart.redraw(false);
+      // });
+
+      showValues();
+		</script>
+	</body>
+</html>

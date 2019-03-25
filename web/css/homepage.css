@@ -1,0 +1,953 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#lookup input, #purchase input, #sellOut input, #inventory input {
+  margin-top: -10px;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+.head {
+  position: relative;
+  float: left;
+  background-color: rgb(0, 156, 147);
+  width: 100%;
+  height: 56px;
+  z-index: 99999;
+}
+
+.head:focus {
+  outline: none
+}
+
+.head p {
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-size: 1.4em;
+  text-align: left;
+  left: 60px;
+  top: 12px;
+  width: 200px;
+}
+
+.head-menu {
+  position: absolute;
+  margin: 0 auto;
+  width: 160px;
+  height: 40px;
+  left: 1350px;
+  top: 5px;
+  z-index: 1000;
+}
+
+.head-menu ul {
+  padding: 0px;
+}
+
+.head-menu ul a {
+  color: #FFF;
+  width: 100px;
+  height: 40px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  /*--font-weight: 2px;*/
+}
+
+/* .head-menu ul:hover{
+  display: block;
+} */
+.head-menu ul li {
+  list-style: none;
+  float: left;
+}
+
+.head-menu ul li a {
+  color: #ffffff;
+  width: 80px;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  /* 添加选中之后的效果 */
+  transition: 1s;
+}
+
+.head-menu ul li a:hover {
+  /* 鼠标移动到标签上时的颜色 */
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+}
+
+.head-menu ul li ul {
+  /* 颜色将被下面的li元素覆盖，不必设置 */
+  position: relative;
+  display: none;
+}
+
+.head-menu ul li ul li {
+  float: none;
+  /* 下拉菜单颜色 */
+  background-color: rgba(0, 156, 147, 0.88);
+}
+
+.head-menu ul li ul li a {
+  font-size: 0.8em;
+  font-weight: 0px;
+}
+
+/* 二级菜单的触发点*/
+.head-menu ul li:hover>ul {
+  display: block;
+}
+
+#color li a img {
+  position: relative;
+  left: -8px;
+  top: 3px;
+  border-radius: 50%;
+}
+
+#signOut {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid rgb(175, 175, 175);
+  text-align: center;
+  font-size: 1em;
+  top: 36%;
+  left: 44%;
+  height: 100px;
+  width: 180px;
+}
+
+.main {
+  float: left;
+  width: 100%;
+  height: 900px;
+  z-index: 1;
+}
+
+.left {
+  position: absolute;
+  float: left;
+  margin-left: 160px;
+  height: 840px;
+  width: 240px;
+  /* 渐变色-上下 */
+  background-image: -webkit-linear-gradient(top, rgba(171, 171, 171, 0.22),
+    rgba(171, 171, 171, 0));
+}
+
+#head-portrait {
+  position: relative;
+  top: 0px;
+  height: 220px;
+  width: 100%;
+  text-align: center;
+  background-image: url("../sprites/portraitBg.gif");
+  background-position: 20% 18%;
+  color: rgb(255, 255, 255);
+}
+
+#head-portrait img {
+  position: absolute;
+  top: 25px;
+  left: 70px;
+}
+
+#head-portrait p {
+  align-content: center;
+  position: absolute;
+  top: 135px;
+  left: 100px;
+}
+
+#head-portrait a {
+  position: absolute;
+  text-decoration: none;
+  align-content: center;
+  font-size: 0.9em;
+  top: 170px;
+  left: 80px;
+  height: 25px;
+  line-height: 25px;
+  width: 80px;
+  border-radius: 14px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 160, 70);
+  transition: 0.4s;
+}
+
+#head-portrait a:hover {
+  background-color: rgb(255, 187, 120);
+}
+
+#functionMenu {
+  position: absolute;
+  float: left;
+  width: 240px;
+  margin-left: 160px;
+  height: 400px;
+  top: 300px;
+}
+
+#functionMenu li {
+  float: left;
+  cursor: pointer;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  width: 240px;
+  height: 50px;
+  display: block;
+  transition: 0.2s;
+}
+
+#functionMenu li:hover {
+  color: rgb(0, 206, 255);
+}
+
+/* 设置选中后的样式 */
+#functionMenu li.choice {
+  background-color: rgba(213, 213, 213, 0.11);
+  color: rgb(0, 206, 255);
+  border-left: 4px solid rgb(0, 206, 255);
+}
+
+.right {
+  position: absolute;
+  float: left;
+  left: 400px;
+  height: 840px;
+  width: 1118px;
+}
+
+/* 小div的设定 */
+#purchase div, #sellOut div, #inventory div {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+/* 商品查询 */
+#lookup {
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  /* 默认显示在最上方 */
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+}
+
+.btn-group button {
+  position: absolute;
+  top: -35px;
+  left: 720px;
+}
+
+#lookup ul {
+  position: absolute;
+  left: 720px;
+  top: 4px;
+}
+
+#lookup ul.open {
+  display: block;
+}
+
+.find {
+  position: relative;
+  margin-top: 60px;
+  margin-left: 60px;
+  height: 35px;
+  width: 90%;
+  float: left;
+}
+
+.find label {
+  position: relative;
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 200;
+  height: 30px;
+  width: 80px;
+  line-height: 20px;
+}
+
+.find input {
+  position: relative;
+  left: 0px;
+  height: 30px;
+  width: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+}
+
+.find button {
+  position: relative;
+  text-align: center;
+  left: 250px;
+  height: 30px;
+  width: 70px;
+  color: rgb(255, 255, 255);
+  border: 0px solid #ffffff;
+  border-radius: 6px;
+}
+
+#find-ordinary {
+  margin-right: 25px;
+  background-color: rgb(0, 152, 255);
+}
+
+#find-senior {
+  background-color: rgb(254, 0, 0);
+}
+
+/* 按钮效果 */
+#find-ordinary:hover{
+  background-color: rgba(0, 152, 255, 0.4);
+}
+
+#find-senior:hover {
+  background-color: rgba(254, 0, 0, 0.4);
+}
+
+.find button:active,.change-button:active{
+  background-color: rgba(207, 207, 207, 0.8);
+}
+
+.find button:focus,.change-button:focus{
+  outline: 0; //消除默认点击蓝色边框效果
+}
+
+#kind {
+  position: absolute;
+  float: left;
+  text-align: center;
+  left: 620px;
+  top: -24px;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(16, 0, 140, 0.4);
+  border: 0px solid #000;
+  border-radius: 4px;
+}
+
+#tableHead {
+  position: relative;
+  height: 35px;
+  width: 90%;
+  margin-left: 60px;
+  top: 0px;
+  float: left;
+  background: radial-gradient(rgba(0, 0, 0, 0.05) -66%, rgba(0, 0, 0, 0.01) 100%);
+}
+
+.table-head {
+  /* position: relative; */
+  font-size: 1.2em;
+  height: 35px;
+  width: 180px;
+  text-align: center;
+  line-height: 35px;
+  float: left;
+}
+
+/*滚动展示区域*/
+.list {
+  position: relative;
+  left: 60px;
+  height: 400px;
+  width: 100%;
+}
+
+.information {
+  position: relative;
+  float: left;
+  top: 10px;
+  height: 50px;
+  left: 60px;
+  width: 100%;
+  border-bottom: 1px solid rgba(138, 138, 138, 0.1);
+}
+.infor {
+  position: relative;
+  height: 50px;
+  width: 180px;
+  text-align: center;
+  line-height: 50px;
+  float: left;
+}
+
+.change-button {
+  position: relative;
+  top: 11px;
+  height: 25px;
+  width: 60px;
+  text-align: center;
+  line-height: 20px;
+  float: left;
+  border: 0px solid #ffffff;
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(106, 141, 255);
+}
+
+.change-button:hover {
+  background-color: rgba(106, 141, 255, 0.6);
+}
+
+.change-button:focus {
+  outline: 0; //消除默认点击蓝色边框效果
+  background-color: rgba(138, 138, 138, 0.1);
+}
+
+/* 进货/出货 */
+#purchase, #sellOut {
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+#purchase {
+  z-index: 99;
+}
+
+#purchase p, #sellOut p {
+  position: relative;
+  float: left;
+  font-size: 1.2em;
+  color: rgb(0, 0, 0);
+  left: 60px;
+  top: 40px;
+  height: 60px;
+  width: 100%;
+  line-height: 70px;
+  text-align: left;
+}
+
+#purchase input, #sellOut input {
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 220px;
+  left: 160px;
+}
+
+#purchase button, #sellOut button {
+  position: relative;
+  float: left;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 160, 70);
+  height: 35px;
+  width: 100px;
+  top: 60px;
+  left: 60px;
+  line-height: 35px;
+  border: transparent; //自定义边框
+}
+
+/* 额外进货按钮 */
+.additional {
+  margin-left: -220px;
+}
+
+/* 定义模态对话框外面的覆盖层样式 */
+#modal-overlay {
+  visibility: visible;
+  position: absolute;
+  /* 使用绝对定位或固定定位 */
+  left: 200px;
+  top: -500px;
+  width: 300px;
+  height: 200px;
+  text-align:center;
+  z-index: 1000;
+  background-color: #fe0808;
+  opacity: 0.5;
+  /* 背景半透明 */
+}
+
+/* 模态框样式 */
+.modal-data {
+  width: 300px;
+  margin: 100px 100px;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 15px;
+  text-align: center;
+}
+
+/* 库存单 */
+#inventory {
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+/* 导入/导出库存单 */
+#inventory input {
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 260px;
+  left: 60px;
+  margin-top: 60px;
+}
+
+#inventory button {
+  position: relative;
+  float: left;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 160, 70);
+  height: 35px;
+  width: 100px;
+  left: 60px;
+  margin-top: 60px;
+  line-height: 35px;
+  border: transparent; //自定义边框
+}
+
+/* 销售统计 */
+#statistics {
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+/* 统计图 */
+#container1 {
+  position: relative;
+  float: left;
+  left: 100px;
+  top: 100px;
+  height: 400px;
+  width: 400px;
+}
+#container2 {
+  position: relative;
+  float: left;
+  left: 100px;
+  top: 100px;
+  height: 400px;
+  width: 400px;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 账户管理 */
+#userManage {
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+/* 账户管理菜单栏 */
+#userManage ul {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+#userManage ul li {
+  list-style: none;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  float: left;
+}
+
+#userManage ul li a {
+  color: rgb(0, 0, 0);
+  font-size: 1.6em;
+  line-height: 40px;
+  text-decoration: none;
+  text-align: center;
+  /* 添加选中之后的效果 */
+  transition: 0.2s;
+}
+
+/* 实现选中后下划线动画效果 */
+#userManage ul li a:after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0;
+  background-color: #faa046;
+  transform: scale(0);
+  transition: all .3s;
+  transform-origin: center;
+}
+
+#userManage ul li a:hover:after {
+  width: 100%;
+  transform: scale(1);
+}
+
+#userManage ul li a:hover {
+  color: rgb(250, 160, 70);
+}
+
+/* 点击后效果 */
+#userManage ul li a.active {
+  color: rgb(250, 160, 70);
+}
+
+#userManage ul {
+  border-bottom: 2px solid rgba(166, 166, 166, 0.4);
+}
+
+/* 个人信息 */
+#information {
+  position: absolute;
+  float: left;
+  height: 85%;
+  width: 60%;
+  top: 100px;
+  background-color: rgb(255, 255, 255);
+  z-index: 99;
+}
+
+#information p {
+  position: relative;
+  float: left;
+  font-size: 1.2em;
+  color: rgb(0, 0, 0);
+  left: 60px;
+  top: 20px;
+  height: 60px;
+  width: 100%;
+  line-height: 70px;
+  text-align: left;
+}
+
+#information input {
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 220px;
+  left: 60px;
+  top: 20px;
+  cursor: default; //箭头图标
+}
+
+#information button {
+  position: relative;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  line-height: 35px;
+  height: 35px;
+  width: 80px;
+  left: 80px;
+  top: 20px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(198, 198, 198);
+  border: transparent; //自定义边框
+}
+
+/* 灰色按钮效果 */
+#information button:hover {
+  background-color: rgba(198, 198, 198, 0.6);
+}
+
+#information button:active {
+  background-color: rgb(198, 198, 198);
+}
+
+#information button:focus {
+  outline: 0; //消除默认点击蓝色边框效果
+}
+
+#information a {
+  position: absolute;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 160, 70);
+  float: left;
+  height: 35px;
+  width: 100px;
+  left: 60px;
+  top: 360px;
+  line-height: 35px;
+  cursor: pointer; //小手图标
+  text-decoration: none;
+}
+
+/* 权限申请 */
+#power {
+  position: absolute;
+  float: left;
+  height: 85%;
+  width: 60%;
+  top: 100px;
+  background-color: rgb(255, 255, 255);
+}
+
+#power p {
+  position: absolute;
+  float: left;
+  font-size: 1.4em;
+  color: rgb(0, 0, 0);
+  left: 60px;
+  top: 40px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+#power input {
+  position: absolute;
+  float: left;
+  height: 40px;
+  width: 250px;
+  left: 60px;
+  top: 120px;
+}
+
+#power a {
+  position: absolute;
+  float: left;
+  left: 340px;
+  top: 120px;
+  font-size: 1.2em;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  width: 80px;
+  line-height: 40px;
+  background-color: rgb(255, 0, 0);
+}
+
+#power a:hover {
+  background-color: rgb(252, 154, 154);
+}
+
+/* 修改密码 */
+#modifyPassword {
+  position: absolute;
+  float: left;
+  height: 85%;
+  width: 60%;
+  top: 100px;
+  background-color: rgb(255, 255, 255);
+}
+
+#modifyPassword p {
+  position: relative;
+  float: left;
+  font-size: 1.2em;
+  color: rgb(0, 0, 0);
+  left: 60px;
+  top: 20px;
+  height: 60px;
+  width: 100%;
+  line-height: 70px;
+  text-align: left;
+}
+
+#modifyPassword input {
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 220px;
+  left: 60px;
+  top: 20px;
+}
+
+#modifyPassword span {
+  position: relative;
+  float: left;
+  left: 70px;
+  top: 25px;
+}
+
+#modifyPassword button {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background-color: rgb(250, 160, 70);
+  font-size: 1em;
+  float: left;
+  height: 35px;
+  width: 100px;
+  left: 60px;
+  top: 360px;
+  line-height: 35px;
+  border: transparent; //自定义边框
+  border-radius: 8px;
+}
+
+/* 橙色按钮效果 */
+#modifyPassword button:hover, #information a:hover, #inventory button:hover,
+#purchase button:hover, #sellOut button:hover, #myportrait button:hover{
+  background-color: rgba(250, 160, 70, 0.6);
+}
+
+#modifyPassword button:active, #information a:active, #inventory button:active,
+#purchase button:active, #sellOut button:active, #myportrait button:active{
+  background-color: rgb(250, 160, 70);
+}
+
+#modifyPassword button:focus, #information a:focus, #inventory button:focus,
+#purchase button:focus, #sellOut button:focus, #myportrait button:focus {
+  outline: 0; //消除默认点击蓝色边框效果
+}
+
+.bottom {
+  position: absolute;
+  float: left;
+  top: 900px;
+  background-color: rgba(166, 166, 166, 0.4);
+  width: 100%;
+  height: 60px;
+}
+
+.bottom p {
+  position: relative;
+  text-align: center;
+  font-size: 1.2em;
+  top: 30%;
+}
+
+/* 修改模态框位置 */
+.modal.fade.in {
+  top: 180px;
+}
+
+/* 虚线部分的高度 */
+.modal-body {
+  height: 160px;
+}
+
+.modal-body p {
+  position: relative;
+  float: left;
+  font-size: 1.2em;
+  color: rgb(0, 0, 0);
+  left: 60px;
+  height: 35px;
+  width: 60px;
+  line-height: 35px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.modal-body input {
+  position: relative;
+  float: left;
+  height: 35px;
+  width: 220px;
+  left: 70px;
+  top: -10px;
+  margin-top: 30px;
+  margin-right: 260px;
+}
+
+.modal-body1 {
+  height: 240px;
+}
+
+.modal-body1 div {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.modal-body1 label {
+  position: relative;
+  float: left;
+  font-size: 1.2em;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
+  width: 80px;
+  left: 70px;
+}
+
+.modal-body1 input {
+  position: relative;
+  float: left;
+  height: 30px;
+  width: 220px;
+  left: 100px;
+}
+
+.modal-body1 a {
+  position: relative;
+  float: left;
+  text-align: center;
+  left: 100px;
+  height: 30px;
+  line-height: 30px;
+  width: 40px;
+  text-decoration: none;
+}
+
+#find-Price1, #find-Price2, #find-Inventory1, #find-Inventory2 {
+  position: relative;
+  float: left;
+  height: 25px;
+  width: 60px;
+}
+
+/* 修改头像 */
+#myportrait {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  height: 200px;
+  width: 200px;
+}
+#preview,#preview img,#myportrait input {
+  width: 140px;
+  height: 140px;
+}
+#head-portrait img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+/* input按钮 */
+#myportrait input {
+  position: absolute;
+  border: 1px solid #000;
+  left: 0px;
+  top: 0px;
+  text-indent:-1000em;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+#myportrait label{
+  position: absolute;
+  font-size: 1.2em;
+  text-align: left;
+  top: -30px;
+  left: 0px;
+}

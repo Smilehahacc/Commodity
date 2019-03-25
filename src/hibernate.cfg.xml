@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/commodity?characterEncoding=UTF-8</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">admin</property>
+
+        <!-- SQL dialect -->        <!-- SQL方言，告诉Hibernate底层用的是什么数据库 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- 这是Hibernate事务管理方式，即每个线程一个事务 -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 这表示是否在控制台显示执行的sql语句 -->
+        <property name="show_sql">true</property>
+
+        <!-- 表示是否会自动更新数据库的表结构，让Hibernate自动去创建表结构 -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 格式固定，需要写上之前的xml配置文档路径，Hibernate会去识别Product这个实体类 -->
+        <mapping resource="com/connect/User.hbm.xml" />
+        <mapping resource="com/connect/Commodities.hbm.xml" />
+        <mapping resource="com/connect/Power.hbm.xml" />
+
+    </session-factory>
+
+</hibernate-configuration>

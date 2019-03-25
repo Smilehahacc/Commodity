@@ -1,0 +1,177 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.main{
+  background: url(../sprites/loginBg.png);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.top{
+  /* background-color:rgb(65, 161, 136); */
+  /* background: url(../sprites/loginBg.png);
+  background-size: cover; */
+  height: 50%;
+  width: 100%;
+}
+
+.down{
+  position: absolute;
+  height: 50%;
+  width: 100%;
+}
+
+.powered{
+  color: rgb(199, 199, 199);
+  text-align: center;
+  position: relative;
+  margin-top: 14%;
+  margin-left: 44%;
+  height: 30px;
+  width: 12%;
+}
+
+.login-main{
+  height: 55%;
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left:0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 8%;
+  margin-left: 30%;
+  border-radius: 22px;
+  box-shadow: 1px 1px 5px 5px #888888;
+  /* filter:alpha(Opacity=80);
+  -moz-opacity:0.9;
+  opacity: 0.9; */
+}
+
+.login-title{
+  color: rgb(164, 164, 164);
+  font-size: 2.4em;
+  text-align: center;
+  position: relative;
+  height: 10%;
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.icon{
+    position: relative;
+    top: 4px;
+    left: -56%;
+}
+
+#clean{
+  position: relative;
+  top: 4px;
+  left: -9%;
+}
+
+#eyes{
+  position: relative;
+  top: 4px;
+  left: -10%;
+}
+
+#number-error,#password-error{
+  font-size: 0.8em;
+  text-align: left;
+  color: rgb(255, 0, 0);
+  position: relative;
+  top: -16px;
+  height: 10px;
+  width: 50%;
+  margin-top: 2px;
+  margin-left: 25%;
+}
+
+input[name="login-number"]{
+  position: absolute;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  text-align: left;
+  position: relative;
+  height: 10%;
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 25%;
+}
+
+input[name="login-password"]{
+  position: absolute;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  text-align: left;
+  position: relative;
+  height: 10%;
+  width: 50%;
+  margin-top: 0px;
+  margin-left: 25%;
+}
+
+.login-remember{
+  font-size: 1em;
+  text-align: left;
+  position: relative;
+  height: 20px;
+  width: 50%;
+  margin-top: -4px;
+  margin-bottom: 10px;
+  margin-left: 25%;
+}
+
+.login-register{
+  font-size: 1em;
+  text-align: left;
+  position: relative;
+  height: 20px;
+  width: 20%;
+  margin-left: 48%;
+}
+
+#login-button{
+  color: rgb(255, 255, 255);
+  background-color: #04bafb;
+  //border-radius: 12px;
+  font-size: 1.4em;
+  text-align: center;
+  position: relative;
+  height: 10%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.login-complete{
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid rgb(175, 175, 175);
+  text-align: center;
+  font-size: 1em;
+  top: 36%;
+  left: 44%;
+  height: 100px;
+  width: 180px;
+  transition: 0.4s;
+}
+
+.login-complete p{
+  position: relative;
+  margin-top: 18px;
+  margin-left: 8px;
+}
+
+.login-complete img{
+  position: relative;
+  top: 10px;
+}

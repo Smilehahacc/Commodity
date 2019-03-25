@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <!-- 包名必须写对 -->
+<hibernate-mapping package="com.connect">
+
+ <!-- class为对应的映射实体类名，table为对应数据库中的表名 -->
+ <class name="User" table="user">
+  	  <id name="username" column="username"></id>
+      <property name="password" />
+      <property name="email" />
+      <property name="mobile" />
+      <property name="power" />
+      <property name="portrait" />
+    </class>
+
+</hibernate-mapping>
